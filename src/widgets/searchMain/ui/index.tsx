@@ -8,13 +8,26 @@ import { useState } from "react";
 interface CardList {
   title?: string;
   urlImg?: string;
-  id?: string;
+  id?: number;
   year?: number;
   ageRating?: number;
-  number?: number;
-  genres?: [{ name: string }];
-  movieLength?: number;
-  countries: [{ name: string }];
+  number: number;
+  genres: [{ name: string }];
+  movieLength: number;
+  countries: string;
+}
+
+interface Movie {
+  id: number;
+  name: string;
+  poster: {
+    previewUrl: string;
+  };
+  year: number;
+  ageRating: number;
+  genres: [{ name: string }];
+  movieLength: number;
+  countries: [{name: string}];
 }
 
 const CardList: React.FC<CardList> = ({
@@ -60,24 +73,22 @@ const CardList: React.FC<CardList> = ({
 };
 
 export const SearchMain = () => {
-  const [query, setQuery] = useState("")
+  const [query, setQuery] = useState("");
 
   const handleClickSearch = () => {
-    refetch()
-  }
+    refetch();
+  };
 
   const { isLoading, isError, data, refetch } = useQuery({
     queryKey: ["data"],
     queryFn: () => {
-      return http.get(
-        `movie/search?page=1&limit=10&query=${query}`
-      );
+      return http.get(`movie/search?page=1&limit=10&query=${query}`);
     },
     enabled: true,
     retry: 1,
   });
 
-  console.log(data)
+  console.log(data);
   return (
     <div className="wrapper__searchMain">
       <h2 className="headerText">Найдите фильм под ваше настроение!</h2>
@@ -91,7 +102,7 @@ export const SearchMain = () => {
       <div className="wrapper__searchMain-list">
         {isLoading && <p>Загрузка...</p>}
         {isError && <p>Ошибка при загрузке данных</p>}
-        {data?.data.docs.map((movie, index) => (
+        {data?.data.docs.map((movie: Movie, index: number) => (
           <CardList
             key={movie.id}
             number={index}

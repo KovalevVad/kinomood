@@ -8,8 +8,20 @@ import "./index.css";
 interface CardList {
   name: string;
   url: string;
-  year: string;
+  year: number;
   countries: string;
+}
+
+interface Movie {
+  id: string;
+  name: string;
+  poster: {
+    previewUrl: string;
+  };
+  year: number;
+  countries: {
+    name: string;
+  }[];
 }
 
 const Card: React.FC<CardList> = ({ name, url, year, countries }) => {
@@ -66,7 +78,7 @@ export const TopMovies = () => {
     <div className="topMovie">
       <h1>Топ 250 фильмов</h1>
       <div className="topMovie__list">
-        {isSuccess && data?.data.docs.map((movie) => (
+        {isSuccess && data?.data.docs.map((movie: Movie) => (
           <Card
             key={movie.id}
             name={movie.name}

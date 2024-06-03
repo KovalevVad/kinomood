@@ -6,9 +6,13 @@ import "./carousel.css";
 
 const PAGE_WIDTH = 1095;
 
-export const Carousel = ({ children }) => {
+interface CarouselProps {
+  children: any;
+}
+
+export const Carousel: React.FC<CarouselProps> = ({ children }) => {
   const [items, setItems] = useState([]);
-  const [offset, setOffset] = useState([]);
+  const [offset, setOffset] = useState<number>(0);
 
   const handleLeftArrowClick = () => {
     setOffset((currentOffset) => {

@@ -8,5 +8,5 @@ export default defineConfig({
       src: "/src",
     },
   },
-  base: 'kinomood'
+  base: '/KinoMood/'
 });
