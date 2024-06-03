@@ -1,0 +1,53 @@
+.main-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 495px;
+  width: 100%;
+  margin-top: 117px;
+}
+
+.window {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.all-items-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 75px;
+
+  transition: translate;
+  transition-property: transform;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+.arrow {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.arrowLeft {
+  left: 160px;
+}
+
+.arrowRight {
+  right: 160px;
+}
+
+.main-container > img {
+  border-radius: 10px;
+}
+
+.main-container > img:hover {
+  background-color: var(--purpleLight);
+  transition: 0.7s;
+}

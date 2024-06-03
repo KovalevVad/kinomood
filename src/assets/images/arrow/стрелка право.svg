@@ -1,0 +1,5 @@
+<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M50 10C50 4.47715 45.5228 0 40 0H10C4.47715 0 0 4.47715 0 10V40C0 45.5228 4.47715 50 10 50H40C45.5228 50 50 45.5228 50 40V10Z" fill="#3E3E3E" fill-opacity="0.5"/>
+<line y1="-0.5" x2="18.6011" y2="-0.5" transform="matrix(-0.707107 -0.707107 -0.707107 0.707107 32 25.153)" stroke="white"/>
+<line y1="-0.5" x2="19.105" y2="-0.5" transform="matrix(-0.707107 0.707107 0.707107 0.707107 32 25)" stroke="white"/>
+</svg>
