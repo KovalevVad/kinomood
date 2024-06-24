@@ -1,0 +1,18 @@
+.rating {
+  display: inline-block;
+  color: #ffff;
+  border-radius: 5px;
+  padding: 0px 4px;
+}
+
+.highRating {
+  background: #12b77c;;
+}
+
+.middleRating {
+  background: #CFC148;
+}
+
+.lowRating {
+  background: #C65F48;
+}

@@ -28,3 +28,4 @@ export const Input: React.FC<InputProps> = ({
     </button>
   </div>
 )
+//props кнопки / суффикс

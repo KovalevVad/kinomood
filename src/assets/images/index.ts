@@ -1,6 +1,7 @@
 export { default as Logo } from "./kinoMood.svg";
 
-export {default as arrowLeft} from './arrow/стрелка влево.svg'
-export {default as arrowRight} from './arrow/стрелка право.svg'
+export {default as arrowLeft} from './arrows/arrow-left.svg'
+export {default as arrowRight} from './arrows/arrow-right.svg'
 
 export { default as searchIcons} from './icons/Search.svg'
+export {default as dropDown} from './icons/drop-down.svg'

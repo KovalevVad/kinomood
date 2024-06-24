@@ -1,0 +1,94 @@
+.Catalog {
+  width: 100%;
+  padding: 0px 98px;
+}
+
+h3 {
+  font-size: 20px;
+  color: #fff;
+  font-family: var(--font-family);
+}
+
+.filmsGrid {
+  display: grid;
+  grid-gap: 20px;
+  gap: 20px;
+  grid-template-columns: repeat(6, 1fr);
+  margin-bottom: 50px;
+}
+
+.filmsGrid__item {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.filmsGrid__item-img {
+  width: 100%;
+  height: 100%;
+}
+
+.filmsGrid__item-img > img {
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.filmsGrid__item-img::after {
+  border-radius: 15px;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.7s;
+}
+
+.filmsGrid__item-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 15px 15px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  font-family: var(--font-family);
+  font-size: 17px;
+  color: #fff;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  opacity: 0;
+  transition: opacity 0.7s;
+}
+
+.filmsGrid__item:hover .filmsGrid__item-img::after {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.filmsGrid__item:hover .filmsGrid__item-wrapper {
+  opacity: 1;
+}
+
+.filmsGrid__item-wrapper > h5 {
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+.filmsGrid__item-wrapper-info {
+  display: flex;
+  gap: 10px;
+  color: #b4b2b2;
+}
+
+@media (max-width: 1024px) {
+  .filmsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,9 +1,15 @@
-import "./index.css";
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 
 import { Input } from "src/shared/ui/input";
 import { http } from "src/shared/api/kinopoisk";
-import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { Title } from "src/shared/ui/title"
+
+import { minutesToHour } from "src/shared/lib/minutes-to-hours/minutes-to-hours"
+
+import "./index.css";
+import { NavLink } from "react-router-dom";
+
 
 interface CardList {
   title?: string;
@@ -41,19 +47,14 @@ const CardList: React.FC<CardList> = ({
   movieLength,
   countries,
 }) => {
-  const updateTime = (minute: number) => {
-    const Hours = Math.floor(minute / 60);
-    const minutes = minute % 60;
-
-    return { Hours, minutes };
-  };
 
   return (
     <div key={id} className="cardSearchMain">
       <span className="titleKey">{number + 1}</span>
       <img src={urlImg} alt="" />
+      <NavLink to={`${id}`}></NavLink>
       <div className="cardSearchMain__text">
-        <h4>{title}</h4>
+        <Title classNameContainer="cardSearchMain__text-title" as="h3" size="small">{title}</Title>
         <span>
           {year}&emsp;{ageRating}+
         </span>
@@ -61,9 +62,9 @@ const CardList: React.FC<CardList> = ({
           {genres?.map((genre, index) => (
             <li key={index}>{genre.name}, &nbsp;</li>
           ))}
-          {updateTime(movieLength).Hours +
+          {minutesToHour(movieLength).Hours +
             ` ч ` +
-            updateTime(movieLength).minutes +
+            minutesToHour(movieLength).minutes +
             ` мин`}
         </ul>
         <span>{countries} • Ридли Скотт</span>
@@ -88,10 +89,9 @@ export const SearchMain = () => {
     retry: 1,
   });
 
-  console.log(data);
   return (
     <div className="wrapper__searchMain">
-      <h2 className="headerText">Найдите фильм под ваше настроение!</h2>
+      <Title as="h2" size="medium" classNameContainer="headerText">Найдите фильм под ваше настроение!</Title>
       <Input
         className="inputSearch"
         placeholder="русская комедия"

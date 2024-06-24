@@ -6,12 +6,19 @@
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 210px;
   height: auto;
   min-width: 210px;
-  min-height: 351px;
+  min-height: 350px;
+}
+
+.card > a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .card > img {
@@ -36,7 +43,6 @@ h1 {
   font-family: var(--font-family);
   font-weight: 700;
   font-size: 48px;
-  text-align: center;
   color: #fff;
   margin-top: 90px;
 }
@@ -58,4 +64,5 @@ h3 {
   margin-top: 50px;
   overflow-x: scroll;
   overflow-y: auto;
+  scrollbar-width: none;
 }

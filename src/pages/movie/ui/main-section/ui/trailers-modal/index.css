@@ -1,0 +1,8 @@
+.modal {
+  width: 948px;
+  max-width: calc(100vw - 100px);
+
+  @media (max-width: 576px) {
+    max-width: calc(100vw - 30px);
+  }
+}

@@ -1,13 +1,9 @@
 header {
-  position: fixed;
-  top: 0;
-  z-index: 999;
   display: flex;
   align-items: center;
   width: 100%;
   height: 72px;
   padding: 0px 120px 0px 120px;
-  border-bottom: 1px solid var(--purpleLight);
   background-color: var(--background);
 }
 
@@ -22,11 +18,29 @@ nav ul {
   gap: 30px;
 }
 
-nav ul li {
+nav ul li a {
   font-family: "Syne-Regular", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 16px;
+  color: #9c9a9a;
+}
+
+nav ul li a.active {
   color: var(--headerWhite);
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(
+    90deg,
+    rgba(224, 170, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(224, 170, 255, 1) 100%
+  );
+  padding-bottom: 16px;
+  border-image-slice: 1;
+}
+
+nav ul li a:hover {
+  color: var(--headerWhite);
+  transition: color 0.7s;
 }
 
 .LogIn {

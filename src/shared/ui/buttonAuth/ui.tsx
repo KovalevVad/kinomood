@@ -1,17 +1,27 @@
+import clsx from 'clsx';
+
+import type { ReactNode } from 'react';
+
 import './index.css'
 
 interface buttonProps {
-  className?: string,
-  text?: string,
+  classNameContainer?: string;
+  children: ReactNode;
  }
 
 export const Button: React.FC<buttonProps> = ({
-  className,
-  text,
+  classNameContainer,
+  children,
 }) => {
+
+  const combinedClassName = clsx(
+    'button',
+    classNameContainer
+  );
+
   return (
-    <button type="button" className={className}>
-      {text}
+    <button type="button" className={combinedClassName}>
+      {children}
     </button>
   )
 }

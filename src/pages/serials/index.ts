@@ -1,0 +1,1 @@
+export { SerialsPage } from "./ui"

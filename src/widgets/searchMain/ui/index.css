@@ -5,11 +5,7 @@
 }
 
 .headerText {
-  font-family: var(--font-family);
-  font-weight: 600;
-  font-size: 32px;
-  text-align: center;
-  color: #fff;
+  margin-bottom: 30px;
 }
 
 .inputSearch {
@@ -33,6 +29,7 @@
 }
 
 .cardSearchMain {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -42,7 +39,17 @@
   padding-top: 12px;
 }
 
-h4,
+.cardSearchMain:hover .cardSearchMain__text-title {
+  color: var(--purpleLight);
+  transition: color 0.7s;
+}
+
+.cardSearchMain > a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
 .titleKey {
   font-family: var(--second-family);
   font-weight: 700;
@@ -87,4 +94,8 @@ h4,
 .cardSearchMain > img {
   width: 150px;
   height: 225px;
+}
+
+.cardSearchMain__text-title {
+  text-align: start;
 }

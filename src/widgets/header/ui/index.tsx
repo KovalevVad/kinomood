@@ -10,12 +10,24 @@ export const Header = () => {
       <img src={Logo} alt="" className="logo" />
       <nav>
         <ul>
-          <li>Главная</li>
-          <li>Фильмы</li>
-          <li>Сериалы</li>
+          <li>
+            <NavLink
+              to="/kinomood/"
+              className={({ isActive }) => isActive ? "active" : "" } end>Главная</NavLink>
+          </li>
+          <li>
+            <NavLink
+              to='/kinomood/movie/'
+              className={({ isActive }) => isActive ? "active" : "" }>Фильмы</NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/kinomood/serials/"
+              className={({ isActive }) => isActive ? "active" : "" }>Сериалы</NavLink>
+            </li>
         </ul>
       </nav>
-      <NavLink to='/auth' className="LogIn">Log in</NavLink>
+      <NavLink to='/kinomood/auth/' className="LogIn">Войти</NavLink>
     </header>
   );
 };

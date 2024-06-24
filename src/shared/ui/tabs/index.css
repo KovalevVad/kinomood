@@ -1,0 +1,29 @@
+.tab {
+  display: flex;
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  gap: 24px;
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+
+.react-tabs__tab--selected {
+  border-bottom: 1.5px solid #e0aaff;
+  padding-bottom: 8px;
+}
+
+.react-tabs__tab {
+  list-style-type: none;
+}
+
+.tab-text {
+  width: 50%;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 161%;
+  letter-spacing: 0.03em;
+  color: var(--movie-Text-Grey);
+}

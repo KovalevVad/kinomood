@@ -1,0 +1,19 @@
+.title {
+  font-family: var(--font-family);
+  color: #fff;
+}
+
+.title-small {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.title-medium {
+  font-weight: 600;
+  font-size: 36px;
+}
+
+.title-large {
+  font-weight: 700;
+  font-size: 48px;
+}

@@ -1,0 +1,15 @@
+.wrapperError {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--background);
+}
+
+.wrapperError__text {
+  color: var(--headerWhite);
+  font-family: var(--font-family);
+  font-size: 70px;
+  text-align: center;
+}
