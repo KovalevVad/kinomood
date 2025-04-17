@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
 import { Input } from "src/shared/ui/input";
@@ -8,7 +9,6 @@ import { Title } from "src/shared/ui/title"
 import { minutesToHour } from "src/shared/lib/minutes-to-hours/minutes-to-hours"
 
 import "./index.css";
-import { NavLink } from "react-router-dom";
 
 
 interface CardList {
@@ -74,21 +74,21 @@ const CardList: React.FC<CardList> = ({
 };
 
 export const SearchMain = () => {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("русская комедия");
 
   const handleClickSearch = () => {
     refetch();
   };
 
   const { isLoading, isError, data, refetch } = useQuery({
-    queryKey: ["data"],
+    queryKey: ["serch"],
     queryFn: () => {
-      return http.get(`movie/search?page=1&limit=10&query=${query}`);
+      return http.get(`movie/search?page=1&limit=5&query=${query}`);
     },
-    enabled: true,
+    enabled: false,
     retry: 1,
   });
-
+  
   return (
     <div className="wrapper__searchMain">
       <Title as="h2" size="medium" classNameContainer="headerText">Найдите фильм под ваше настроение!</Title>

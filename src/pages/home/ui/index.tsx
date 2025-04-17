@@ -1,7 +1,7 @@
 import { Header } from "src/widgets/header"
-import { Slider } from "src/widgets/slider/Slider"
-import { TopMovies } from "src/widgets/topMovies"
-import { SearchMain } from "src/widgets/searchMain"
+import { Slider } from "./slider/index"
+import { TopMovies } from "src/pages/home/ui/topMovies"
+import { SearchMain } from "src/pages/home/ui/searchMain"
 
 export const HomePage = () => {
   return (

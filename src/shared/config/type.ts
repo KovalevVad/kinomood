@@ -14,4 +14,8 @@ export interface MovieType {
     url: string
   };
   movieLength: number;
+  rating: {
+    kp?: number | undefined;
+    imdb?: number | undefined;
+  }
 }

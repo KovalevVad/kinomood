@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 
-import { Logo } from "src/assets/images";
+import { Logo } from "src/app/images";
+import { path } from "src/shared/routing";
 
 import "./index.css";
 
@@ -12,22 +13,42 @@ export const Header = () => {
         <ul>
           <li>
             <NavLink
-              to="/kinomood/"
-              className={({ isActive }) => isActive ? "active" : "" } end>Главная</NavLink>
+              to={path.home}
+              className={({ isActive }) => (isActive ? "active" : "")}
+              end
+            >
+              Главная
+            </NavLink>
           </li>
           <li>
             <NavLink
-              to='/kinomood/movie/'
-              className={({ isActive }) => isActive ? "active" : "" }>Фильмы</NavLink>
+              to={path.films}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Фильмы
+            </NavLink>
           </li>
           <li>
             <NavLink
-              to="/kinomood/serials/"
-              className={({ isActive }) => isActive ? "active" : "" }>Сериалы</NavLink>
-            </li>
+              to={path.serials}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Сериалы
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={path.anime}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Аниме
+            </NavLink>
+          </li>
         </ul>
       </nav>
-      <NavLink to='/kinomood/auth/' className="LogIn">Войти</NavLink>
+      <NavLink to={path.auth} className="LogIn">
+        Войти
+      </NavLink>
     </header>
   );
 };

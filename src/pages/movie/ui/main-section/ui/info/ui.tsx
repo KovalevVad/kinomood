@@ -20,8 +20,8 @@ interface Props {
 
 export const Info = ({
   rating,
-  year,
-  genres,
+  year = 2003,
+  genres = "Неизвесто",
   ageRating,
   countries,
   movieLength,

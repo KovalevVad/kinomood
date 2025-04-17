@@ -1,9 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
 import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-import { http } from "src/shared/api/kinopoisk";
-import { MovieType } from "src/shared/config/type"
+import { MovieType } from "src/shared/config/type";
+import { UseTopMoviesQuery } from "../api";
+import { arrowLeft, arrowRight } from "src/app/images";
 
 import "./index.css";
 
@@ -15,12 +15,7 @@ interface CardList {
   countries: string;
 }
 
-const Card: React.FC<CardList> = ({
-  id,
-  name,
-  url,
-  year,
-  countries }) => {
+const Card: React.FC<CardList> = ({ id, name, url, year, countries }) => {
   return (
     <div key={id} className="card">
       <NavLink to={`${id}`}></NavLink>
@@ -36,46 +31,35 @@ const Card: React.FC<CardList> = ({
 };
 
 export const TopMovies = () => {
+  const { isSuccess, refetch, data } = UseTopMoviesQuery();
+
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
 
-  const searchParams = new URLSearchParams({
-    page: "1",
-    limit: "100",
-    notNullFields: "top250",
-  });
-
-  const selectFields = ["id", "name", "year", "poster", "top250", "countries"];
-
-  selectFields.forEach((field) => {
-    searchParams.append("selectFields", field);
-  });
-
-  const { isLoading, isError, isSuccess, data, refetch } = useQuery({
-    queryKey: ["data.data.docs"],
-    queryFn: () => {
-      return http.get(
-        `movie?${searchParams}&sortField=top250&sortType=1&type=movie`
-      );
-    },
-    enabled: true,
-    retry: 1,
-  });
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     refetch();
   }, []);
 
-  if (isLoading) {
-    return <h3>Идет загрузка....</h3>;
-  }
+  const handleClickButtonLeft = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollBy({ left: -600, behavior: "smooth" }); // Прокручиваем влево на 300px
+    }
+  };
 
-  if (isError) {
-    return <h3>Ошибка получения данных</h3>;
-  }
+  const handleClickButtonRight = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollBy({ left: 600, behavior: "smooth" }); // Прокручиваем влево на 300px
+    }
+  };
 
+  console.log(startX, scrollLeft, isDragging);
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Запрещаем прокрутку, если используется мышь (левая кнопка)
+    if (e.button !== 0) return;
+
     setIsDragging(true);
     setStartX(e.pageX - e.currentTarget.offsetLeft);
     setScrollLeft(e.currentTarget.scrollLeft);
@@ -86,6 +70,9 @@ export const TopMovies = () => {
   };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Если мышь используется для прокрутки, блокируем действие
+    if (e.type === "mousemove") return;
+
     if (!isDragging) return;
     e.preventDefault();
     const x = e.pageX - e.currentTarget.offsetLeft;
@@ -98,6 +85,7 @@ export const TopMovies = () => {
       <h1>Топ 250 фильмов</h1>
       <div
         className="topMovie__list"
+        ref={containerRef}
         onMouseDown={handleMouseDown}
         onMouseLeave={handleMouseLeaveOrUp}
         onMouseUp={handleMouseLeaveOrUp}
@@ -113,6 +101,18 @@ export const TopMovies = () => {
               countries={movie.countries[0].name}
             />
           ))}
+        <img
+          className="topMovie__list-arrowLeft"
+          onClick={handleClickButtonLeft}
+          src={arrowLeft}
+          alt="стрелка влево"
+        />
+        <img
+          className="topMovie__list-arrowRight"
+          onClick={handleClickButtonRight}
+          src={arrowRight}
+          alt="стрелка вправо"
+        />
       </div>
     </div>
   );

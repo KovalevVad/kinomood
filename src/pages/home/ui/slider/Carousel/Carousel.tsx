@@ -1,6 +1,6 @@
 import { useEffect, useState, Children, cloneElement } from "react";
 
-import { arrowLeft, arrowRight } from "../../../assets/images";
+import { arrowLeft, arrowRight } from "src/app/images";
 
 import "./carousel.css";
 

@@ -7,7 +7,7 @@ import { Tabs } from "./tabs"
 import "./index.css"
 
 type Params = {
-  id: string | undefined;
+  id?: string;
 }
 
 export const MoviePage = () => {
@@ -17,11 +17,11 @@ export const MoviePage = () => {
   if (!id) {
     return <div>Id is missing</div>;
   }
-  
+
   return (
     <>
       <Header />
-      <div className='moviePage'>
+      <div className="moviePage">
         <MainSection id={id}/>
         <Tabs id={id} />
       </div>

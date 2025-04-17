@@ -12,12 +12,19 @@ interface IdParam {
 export const MainSection = ({ id }: IdParam) => {
   const { data } = useMovieQuery(id);
 
+  let backgroundUrl;
+  if (data?.data?.backdrop?.url !== undefined) {
+    backgroundUrl = data?.data?.backdrop?.url;
+  } else {
+    backgroundUrl = data?.data.poster.url;
+  }
+
   return (
     <section className="MoviePage__mainSection">
       <div
         className="MoviePage__mainSection-bg"
         style={{
-          backgroundImage: `url(${data?.data.backdrop.url})`,
+          backgroundImage: `url(${backgroundUrl})`,
         }}
       ></div>
       <Title
@@ -38,12 +45,14 @@ export const MainSection = ({ id }: IdParam) => {
       <p className="mainSection__description">{data?.data.shortDescription}</p>
       <div className="MoviePage__mainSection-button">
         <Button type="buttonMovie">Смотреть фильм</Button>
-        <Button
-          type="buttonTrailer"
-          trailerUrl={data?.data.videos.trailers[0].url}
-        >
-          трейлер
-        </Button>
+        {data?.data?.videos?.trailers[0]?.url && (
+          <Button
+            type="buttonTrailer"
+            trailerUrl={data.data.videos.trailers[0].url}
+          >
+            трейлер
+          </Button>
+        )}
       </div>
     </section>
   );

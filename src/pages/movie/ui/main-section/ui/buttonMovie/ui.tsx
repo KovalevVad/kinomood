@@ -20,10 +20,14 @@ export const Button: React.FC<buttonProps> = ({
   trailerUrl,
 }) => {
 
-  const [isOpen, isSetOpen ] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   const handleClick = () => {
-    isSetOpen(true)
+    setIsOpen(true)
+  };
+
+  const handleClickClose = () => {
+    setIsOpen(false)
   };
 
   return (
@@ -42,9 +46,9 @@ export const Button: React.FC<buttonProps> = ({
           onClick={handleClick}
         >
           {children}
-          <ModalTrailer trailerUrl={trailerUrl} isModalOpen={isOpen} />
         </button>
       )}
+      <ModalTrailer trailerUrl={trailerUrl} isModalOpen={isOpen} handleClickClose={handleClickClose} />
     </>
   );
 };

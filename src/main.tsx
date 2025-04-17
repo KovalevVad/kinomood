@@ -1,10 +1,16 @@
-import "./assets/reset.css";
-import "./assets/style.css";
-
-import React from 'react'
+import React from "react";
 import ReactDOM from "react-dom/client";
+
+
+import "src/app/reset.css";
 import { App } from "./App";
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+import { Provider } from "react-redux";
+import { store } from "./store";
+
+import "src/app/style.css";
 
 const queryClient = new QueryClient();
 
@@ -13,8 +19,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
+    </Provider>
   </React.StrictMode>
 );

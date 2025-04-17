@@ -1,20 +1,27 @@
+import { useDispatch } from 'react-redux';
 
-import { dropDown } from "src/assets/images"
-
-import "./index.css"
+import { filters } from "../config"
+import { DropDown } from "./dropdown"
+import { filtersActions } from '../slice';
+import { GenresEnum } from 'src/shared/config/genres';
 
 export const Filters = () => {
+  const genre = filters[0]
+  const rating = filters[1]
+  const dispatch = useDispatch()
+
+  const handleGenreChange = (selectedGenre: GenresEnum) => {
+    dispatch(filtersActions.setGenre({ genre: selectedGenre }))
+  }
+
+  const handleRatingChange = (selectedRating: string) => {
+    dispatch(filtersActions.setRating({rating: selectedRating }))
+  }
+
   return (
-    <div className="dropdown">
-    <button className="dropButton">
-      <p>Жанры</p>
-      <img src={dropDown} alt="" />
-    </button>
-    <div className="dropdown-content">
-      <a href="#">Ссылка 1</a>
-      <a href="#">Ссылка 2</a>
-      <a href="#">Ссылка 3</a>
-    </div>
-  </div>
+    <>
+      <DropDown arr={genre} label={"жанры"} onChange={handleGenreChange} />
+      <DropDown arr={rating} label={"рейтинг"} onChange={handleRatingChange}/>
+    </>
   )
 }
