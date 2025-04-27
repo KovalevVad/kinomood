@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 
 import { dropDown } from "src/app/images";
 
-
 import "./index.css";
 
 export const DropDown = ({ arr, label, onChange }) => {
@@ -20,7 +19,7 @@ export const DropDown = ({ arr, label, onChange }) => {
 
     document.addEventListener('mousedown', handleClickOutside);
 
-    
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
@@ -35,7 +34,6 @@ export const DropDown = ({ arr, label, onChange }) => {
     onChange(value);
     setIsOpen(false);
   };
-
 
   return (
     <div className="dropdown" ref={modalRef}>

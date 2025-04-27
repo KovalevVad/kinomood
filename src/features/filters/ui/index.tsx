@@ -9,7 +9,7 @@ export const Filters = () => {
   const genre = filters[0]
   const rating = filters[1]
   const dispatch = useDispatch()
-
+  console.log(rating)
   const handleGenreChange = (selectedGenre: GenresEnum) => {
     dispatch(filtersActions.setGenre({ genre: selectedGenre }))
   }

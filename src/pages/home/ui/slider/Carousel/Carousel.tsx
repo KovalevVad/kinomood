@@ -1,8 +1,8 @@
-import { useEffect, useState, Children, cloneElement } from "react";
+import { useEffect, useState, Children, cloneElement } from 'react';
 
-import { arrowLeft, arrowRight } from "src/app/images";
+import { arrowLeft, arrowRight } from 'src/app/images';
 
-import "./carousel.css";
+import './carousel.css';
 
 const PAGE_WIDTH = 1095;
 

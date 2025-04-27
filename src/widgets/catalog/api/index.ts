@@ -14,7 +14,7 @@ export const useCatalogQuery = (
     page: "1",
     limit: "36",
   });
-
+  console.log(rating)
   const selectFields = [
     "id",
     "name",
