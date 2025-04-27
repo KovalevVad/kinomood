@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { http } from "src/shared/api/kinopoisk";
 
 export const useCatalogQuery = (
-  genre: string,
-  rating: string,
-  type: string
+  genre?: string,
+  rating?: string,
+  type?: string
 ) => {
   const [isEnabled, setIsEnabled] = useState(true);
 
@@ -14,7 +14,7 @@ export const useCatalogQuery = (
     page: "1",
     limit: "36",
   });
-  console.log(rating)
+
   const selectFields = [
     "id",
     "name",
