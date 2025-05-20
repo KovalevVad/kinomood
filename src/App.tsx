@@ -10,14 +10,14 @@ import { AnimePage } from "./pages/anime"
 
 import { path } from "src/shared/routing"
 
-
 export const App = () => {
   return (
     <Router>
         <Routes>
           <Route path={path.error} element={<ErrorPage/>} />
           <Route path={path.home} element={<HomePage />} />
-          <Route path={path.auth} element={<Auth />} />
+          <Route path={path.login} element={<Auth />} />
+          <Route path={path.register} element={<Auth mode="register" />} />
           <Route path={path.films} element={<FilmsPage />} />
           <Route path={path.serials} element={<SerialsPage />} />
           <Route path={path.movie} element={<MoviePage />} />

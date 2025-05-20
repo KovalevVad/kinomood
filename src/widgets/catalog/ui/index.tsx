@@ -1,19 +1,18 @@
-import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-import { RootState } from "src/store";
-import { Header } from "src/widgets/header";
-import { Title } from "src/shared/ui/title";
-import { Filters } from "src/features/filters";
-import { MovieType } from "src/shared/config/type";
+import { RootState } from 'src/store/store';
+import { Header } from 'src/widgets/header';
+import { Title } from 'src/shared/ui/title';
+import { Filters } from 'src/features/filters';
+import { MovieType } from 'src/shared/config/type';
 
-import { minutesToHour } from "src/shared/lib/minutes-to-hours/minutes-to-hours";
-import { MovieRating } from "src/shared/ui/movieRating";
+import { minutesToHour } from 'src/shared/lib/minutes-to-hours/minutes-to-hours';
+import { MovieRating } from 'src/shared/ui/movieRating';
 
-import { useCatalogQuery } from "src/widgets/catalog/api";
+import { useCatalogQuery } from 'src/widgets/catalog/api';
 
-import "./index.css";
-
+import './index.css';
 
 interface CatalogProps {
   title: string;

@@ -1,9 +1,10 @@
-import { useMovieQuery } from "src/pages/movie/api";
-import { Info } from "./info";
-import { Title } from "src/shared/ui/title";
-import { Button } from "./buttonMovie";
+import { useMovieQuery } from 'src/pages/movie/api';
+import { Info } from './info';
+import { Title } from 'src/shared/ui/title';
+import { Button } from './buttonMovie';
+import { MovieFavorite } from 'src/shared/ui/movieFavorite/ui';
 
-import "./index.css";
+import './index.css';
 
 interface IdParam {
   id: string;
@@ -53,6 +54,7 @@ export const MainSection = ({ id }: IdParam) => {
             трейлер
           </Button>
         )}
+        <MovieFavorite movieId={id} />
       </div>
     </section>
   );

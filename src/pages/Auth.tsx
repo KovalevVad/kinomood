@@ -1,7 +1,6 @@
-import { AuthLogin } from 'src/widgets/Auth'
+import { AuthRegister, AuthLogin } from 'src/widgets/Auth';
 
-export const Auth = () => {
-  return (
-    <AuthLogin />
-  )
+
+export const Auth = ({ mode = "login" }) => {
+  return mode === "register" ? <AuthRegister /> : <AuthLogin />;
 };

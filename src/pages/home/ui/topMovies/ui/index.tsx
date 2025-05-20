@@ -55,7 +55,6 @@ export const TopMovies = () => {
     }
   };
 
-  console.log(startX, scrollLeft, isDragging);
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     // Запрещаем прокрутку, если используется мышь (левая кнопка)
     if (e.button !== 0) return;

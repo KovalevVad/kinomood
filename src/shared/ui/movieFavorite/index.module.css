@@ -1,0 +1,9 @@
+.MovieFavorite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background-color: rgba(153, 153, 191, 0.2);
+  border-radius: 8px;
+}

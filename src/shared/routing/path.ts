@@ -2,7 +2,8 @@
 export const path = {
   home: "/kinomood/",
   error: '*',
-  auth: "/kinomood/auth/",
+  login: "/kinomood/login/",
+  register: "/kinomood/register/",
   films: "/kinomood/movie/",
   serials:  "/kinomood/serials/",
   movie: "/kinomood/:id",
